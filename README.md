@@ -14,6 +14,7 @@ sudo dnf install mattermost-desktop
 Updates arrive with the regular `sudo dnf upgrade` (or through Discover / GNOME Software).
 
 Supported: current Fedora releases and rawhide, x86_64 and aarch64.
+Builds and repository: [copr.fedorainfracloud.org/coprs/lukas-runge/mattermost-desktop](https://copr.fedorainfracloud.org/coprs/lukas-runge/mattermost-desktop/)
 
 ## How it works
 

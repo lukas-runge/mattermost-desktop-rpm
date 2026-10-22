@@ -13,7 +13,7 @@ jobs:
   bump:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Update spec to latest upstream release
         env:
@@ -43,6 +43,12 @@ jobs:
 
       # GitHub disables scheduled workflows after 60 days without repo activity.
       - name: Keep schedule alive
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/bump.yml/enable"
+        run: |
+          for attempt in 1 2 3; do
+            gh api -X PUT "repos/${{ github.repository }}/actions/workflows/bump.yml/enable" && exit 0
+            sleep 10
+          done
+          exit 1

@@ -4,7 +4,7 @@
 %global __requires_exclude_from ^/opt/Mattermost/.*$
 
 Name:           mattermost-desktop
-Version:        6.3.1
+Version:        6.3.2
 Release:        1%{?dist}
 Summary:        Mattermost Desktop client (repackaged upstream build)
 License:        Apache-2.0
